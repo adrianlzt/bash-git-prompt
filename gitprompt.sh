@@ -80,7 +80,7 @@ function git_prompt_config()
   fi
 
   # Various variables you might want for your PS1 prompt instead
-  local Time12a="\$(date +%H:%M)"
+  # local Time12a="\$(date +%H:%M)"
   # local Time12a="(\$(date +%H:%M:%S))"
   # local Time12a="(\@))"
   local PathShort="\w"
@@ -92,7 +92,7 @@ function git_prompt_config()
   fi
 
   if [ "x${GIT_PROMPT_END}" == "x" ]; then
-    PROMPT_END=" \n${White}${Time12a}${ResetColor} $ "
+    PROMPT_END=" \n${White}${Time12a}${ResetColor}$ "
   else
     PROMPT_END="${GIT_PROMPT_END}"
   fi
@@ -105,9 +105,9 @@ function git_prompt_config()
   fi
 
   if [[ -n "${VIRTUAL_ENV}" ]]; then
-    EMPTY_PROMPT="(${Blue}$(basename "${VIRTUAL_ENV}")${ResetColor}) ${PROMPT_START}$($prompt_callback)${PROMPT_END}"
+    EMPTY_PROMPT="(${Blue}$(basename "${VIRTUAL_ENV}")${ResetColor}) ${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ "
   else
-    EMPTY_PROMPT="${PROMPT_START}$($prompt_callback)${PROMPT_END}"
+    EMPTY_PROMPT="${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ "
   fi
 
   # fetch remote revisions every other $GIT_PROMPT_FETCH_TIMEOUT (default 5) minutes
