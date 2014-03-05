@@ -1,5 +1,5 @@
 # Informative git prompt for bash and fish
-[![CodeShip](https://www.codeship.io/projects/9ae74330-8697-0131-49f1-3e77f06cd138/status)
+![CodeShip](https://www.codeship.io/projects/9ae74330-8697-0131-49f1-3e77f06cd138/status)
 
 This prompt is a port of the "Informative git prompt for zsh" which you can
 find [here](https://github.com/olivierverdier/zsh-git-prompt)
